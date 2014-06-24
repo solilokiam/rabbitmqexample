@@ -1,0 +1,6 @@
+parameters:
+#    solilokiam_rabbit_mq.example.class: Solilokiam\RabbitMQBundle\Example
+
+services:
+    solilokiam.rabbitmq.make_thumbnail_consumer:
+        class: Solilokiam\RabbitMQBundle\Consumers\MakeThumbnailConsumer

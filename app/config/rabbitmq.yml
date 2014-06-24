@@ -1,0 +1,19 @@
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host:     'localhost'
+            port:     5672
+            user:     'guest'
+            password: 'guest'
+            vhost:    '/'
+            lazy:     true
+    producers:
+        make_thumbnail:
+            connection:       default
+            exchange_options: {name: 'make-thumbnail-exchange', type: direct, durable: true, auto_delete: false}
+    consumers:
+        upload_picture:
+            connection:       default
+            exchange_options: {name: 'make-thumbnailexchange', type: direct, durable: true, auto_delete: false}
+            queue_options:    {name: 'make-thumbnail-queue',durable: true}
+            callback:         solilokiam.rabbitmq.make_thumbnail_consumer
