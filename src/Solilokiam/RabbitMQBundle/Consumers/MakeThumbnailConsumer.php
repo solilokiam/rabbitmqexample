@@ -11,7 +11,7 @@ class MakeThumbnailConsumer implements ConsumerInterface
 {
     public function execute(AMQPMessage $msg)
     {
-        $data = json_decode($msg->body);
+        $data = json_decode($msg->body,true);
 
         $imagine = new Imagine();
 
