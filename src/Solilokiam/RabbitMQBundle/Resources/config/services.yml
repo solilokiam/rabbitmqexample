@@ -4,3 +4,10 @@ parameters:
 services:
     solilokiam.rabbitmq.make_thumbnail_consumer:
         class: Solilokiam\RabbitMQBundle\Consumers\MakeThumbnailConsumer
+    solilokiam.rabbitmq.make_thumbnail_consumer_translated:
+        class: Solilokiam\RabbitMQBundle\Consumers\MakeThumbnailConsumerTranslated
+        arguments:
+            - @solilokiam.rabbitmq.make_thumbnail_translator
+    solilokiam.rabbitmq.make_thumbnail_translator:
+        class: Solilokiam\RabbitMQBundle\Model\Translators\MakeThumbnailTranslator
+

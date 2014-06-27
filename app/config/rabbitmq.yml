@@ -10,10 +10,23 @@ old_sound_rabbit_mq:
     producers:
         make_thumbnail:
             connection:       default
-            exchange_options: {name: 'make-thumbnail-exchange', type: direct, durable: true, auto_delete: false}
+            exchange_options:
+                name: 'make-thumbnail-exchange'
+                type: direct
+                durable: true
+                auto_delete: false
     consumers:
         make_thumbnail:
             connection:       default
-            exchange_options: {name: 'make-thumbnail-exchange', type: direct, durable: true, auto_delete: false}
-            queue_options:    {name: 'make-thumbnail-queue',durable: true}
-            callback:         solilokiam.rabbitmq.make_thumbnail_consumer
+            exchange_options:
+                name: 'make-thumbnail-exchange'
+                type: direct
+                durable: true
+                auto_delete: false
+            queues:
+                make_thumbnail:
+                    name: make-thumbnail-queue
+                    callback: solilokiam.rabbitmq.make_thumbnail_consumer
+                make_thumbnail_translator:
+                    name: make-thumbnail-translator-queue
+                    callback: solilokiam.rabbitmq.make_thumbnail_consumer_translator
