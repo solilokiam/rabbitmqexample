@@ -15,7 +15,7 @@ old_sound_rabbit_mq:
                 type: direct
                 durable: true
                 auto_delete: false
-    consumers:
+    multiple_consumers:
         make_thumbnail:
             connection:       default
             exchange_options:
@@ -29,4 +29,4 @@ old_sound_rabbit_mq:
                     callback: solilokiam.rabbitmq.make_thumbnail_consumer
                 make_thumbnail_translator:
                     name: make-thumbnail-translator-queue
-                    callback: solilokiam.rabbitmq.make_thumbnail_consumer_translator
+                    callback: solilokiam.rabbitmq.make_thumbnail_consumer_translated

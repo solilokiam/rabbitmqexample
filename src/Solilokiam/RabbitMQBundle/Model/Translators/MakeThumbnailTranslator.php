@@ -6,16 +6,16 @@
  * Time: 23:12
  */
 
-namespace Solilokiam\RabbitMQBundle\Translators;
+namespace Solilokiam\RabbitMQBundle\Model\Translators;
 
 
-use Solilokiam\RabbitMQBundle\Message\MakeThumbnailMessage;
+use Solilokiam\RabbitMQBundle\Model\Message\MakeThumbnailMessage;
 
 class MakeThumbnailTranslator implements TranslatorInterface
 {
     public function translateMessage($message)
     {
-        $data = json_encode($message->body);
+        $data = json_decode($message->body,true);
 
         if(json_last_error() !== JSON_ERROR_NONE)
         {

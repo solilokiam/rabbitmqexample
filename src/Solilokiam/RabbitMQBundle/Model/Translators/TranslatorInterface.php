@@ -6,7 +6,7 @@
  * Time: 23:11
  */
 
-namespace Solilokiam\RabbitMQBundle\Translators;
+namespace Solilokiam\RabbitMQBundle\Model\Translators;
 
 
 interface TranslatorInterface

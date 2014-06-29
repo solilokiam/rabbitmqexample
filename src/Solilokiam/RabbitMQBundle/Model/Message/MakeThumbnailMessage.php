@@ -6,7 +6,7 @@
  * Time: 23:15
  */
 
-namespace Solilokiam\RabbitMQBundle\Message;
+namespace Solilokiam\RabbitMQBundle\Model\Message;
 
 
 class MakeThumbnailMessage
