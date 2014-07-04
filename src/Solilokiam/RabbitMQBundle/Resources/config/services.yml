@@ -8,6 +8,16 @@ services:
         class: Solilokiam\RabbitMQBundle\Consumers\MakeThumbnailConsumerTranslated
         arguments:
             - @solilokiam.rabbitmq.make_thumbnail_translator
+    solilokiam.rabbitmq.string_reverser:
+        class: Solilokiam\RabbitMQBundle\Consumers\StringReverser
+        arguments:
+            - @solilokiam.rabbitmq.string_reverse_translator
+    solilokiam.rabbitmq.string_capitalizer:
+        class: Solilokiam\RabbitMQBundle\Consumers\StringCapitalizer
+        arguments:
+            - @solilokiam.rabbitmq.string_reverse_translator
     solilokiam.rabbitmq.make_thumbnail_translator:
         class: Solilokiam\RabbitMQBundle\Model\Translators\MakeThumbnailTranslator
+    solilokiam.rabbitmq.string_reverse_translator:
+        class: Solilokiam\RabbitMQBundle\Model\Translators\StringReverseTranslator
 
